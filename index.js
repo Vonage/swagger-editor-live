@@ -2,7 +2,7 @@
 
 var path = require('path');
 var fs = require('fs');
-var open = require('open');
+var opn = require('opn');
 var nodeModules = path.resolve(path.resolve(__dirname, ''), 'node_modules');
 if (!fs.existsSync(nodeModules)) {
   nodeModules = path.resolve('node_modules');
@@ -44,7 +44,7 @@ function edit(swaggerFile, port, hostname,folder) {
     app.use(express.static(folder));
   }
   app.listen(port,hostname, function() {
-    open('http://' + hostname + ':' + port);
+    opn('http://' + hostname + ':' + port);
   });
 }
 
